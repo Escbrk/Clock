@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Clock</title>
+        <style>
+            .clock {
+                width: 550px;
+                height: 550px;
+                background-image: url(https://i.ibb.co/dBGxSK1/hiclipart-com-3.png);
+                background-color: rgba(255, 255, 255, 0);
+                background-size: cover;
+                border-radius: 50%;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .clock-arrow {
+                position: absolute;
+                background-color: black;
+                transform-origin: bottom;
+                transform: translateX(-50%);
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+            }
+
+            .clock-center {
+                position: absolute;
+                background-color: black;
+                top: 268px;
+                left: 268px;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+            }
+
+            .clock-seconds__arrow {
+                bottom: 50%;
+                left: 50%;
+                width: 5px;
+                height: 40%;
+            }
+
+            .clock-minutes__arrow {
+                bottom: 50%;
+                left: 50%;
+                width: 7px;
+                height: 33%;
+            }
+
+            .clock-hours__arrow {
+                bottom: 50%;
+                left: 50%;
+                width: 12px;
+                height: 24%;
+            }
+
+            .date {
+                width: 100px;
+                height: 100px;
+                color: black;
+            }
+
+            .calendar {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .date-style {
+                display: flex;
+                font-size: 40px;
+                font-weight: 900;
+                text-shadow: 3px 3px 2px #cecbcd;
+            }
+
+            .digital-clock {
+                text-align: center;
+                font-size: 60px;
+                text-shadow: 3px 3px 2px #cecbcd;
+            }
+        </style>
+    </head>
+
+    <body>
+    <div class="calendar">
+      <div class="date-style">
+        День недели: <span class="date-day"> 0</span>
+      </div>
+      <div class="date-style">День месяца:<span class="date">0</span></div>
+      <div class="date-style">Месяц:<span class="date-month">0</span></div>
+      <div class="date-style">Год:<span class="date-year">0</span></div>
+    </div>
+    <div class="digital-clock">Время: <span class="date-time">0</span></div>
+    <div class="clock">
+      <span class="clock-arrow clock-hours__arrow"></span>
+      <span class="clock-arrow clock-seconds__arrow"></span>
+      <span class="clock-arrow clock-minutes__arrow"></span>
+      <span class="clock-center"></span>
+    </div>
+
+        <script src="./src/index.js" type="module"></script>
+    </body>
+</html>
