@@ -44,12 +44,17 @@ setInterval(() => {
     refs.date.textContent = currentDate.getDate();
     refs.month.textContent = namesOfMonth[currentDate.getMonth()];
     refs.year.textContent = currentDate.getFullYear();
+
+    //! v1
     const currentTime = {
         hours: currentDate.getHours().toString().padStart(2, 0),
         minutes: currentDate.getMinutes().toString().padStart(2, 0),
         seconds: currentDate.getSeconds().toString().padStart(2, 0),
     };
 
+    //! v2
+    //! const currentTime = currentDate.toLocaleTimeString('ca-CA')
+    
     const clock = {
         hours:
             (360 / 12) * currentTime.hours +
@@ -58,9 +63,7 @@ setInterval(() => {
         seconds: (360 / 60) * currentTime.seconds,
     };
 
-    // console.log(clock.minutes)
     const formatTime = `${currentTime.hours}:${currentTime.minutes}:${currentTime.seconds}`;
-
     refs.digitalClock.textContent = formatTime;
 
     refs.clockSeconds__arrow.style.transform = `rotate(${clock.seconds}deg)`;
