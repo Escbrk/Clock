@@ -37,36 +37,42 @@ const namesOfDays = [
     'Суббота',
 ];
 
-setInterval(() => {
-    const currentDate = new Date();
+getCurrentDate()
+setInterval(getCurrentDate, 1000);
 
-    refs.day.textContent = namesOfDays[currentDate.getDay()];
-    refs.date.textContent = currentDate.getDate();
-    refs.month.textContent = namesOfMonth[currentDate.getMonth()];
-    refs.year.textContent = currentDate.getFullYear();
+function getCurrentDate() {
+      const currentDate = new Date();
 
-    //! v1
-    const currentTime = {
+      refs.day.textContent = namesOfDays[currentDate.getDay()];
+      refs.date.textContent = currentDate.getDate();
+      refs.month.textContent = namesOfMonth[currentDate.getMonth()];
+      refs.year.textContent = currentDate.getFullYear();
+
+      //! v1
+      const currentTime = {
         hours: currentDate.getHours().toString().padStart(2, 0),
         minutes: currentDate.getMinutes().toString().padStart(2, 0),
         seconds: currentDate.getSeconds().toString().padStart(2, 0),
-    };
+      };
 
-    //! v2
-    //! const currentTime = currentDate.toLocaleTimeString('ca-CA')
-    
-    const clock = {
+      //! v2
+      //! const currentTime = currentDate.toLocaleTimeString('ca-CA')
+
+      const clock = {
         hours:
-            (360 / 12) * currentTime.hours +
-            (360 / 12 / 60) * currentTime.minutes,
+          (360 / 12) * currentTime.hours +
+          (360 / 12 / 60) * currentTime.minutes,
         minutes: (360 / 60) * currentTime.minutes,
         seconds: (360 / 60) * currentTime.seconds,
-    };
+      };
+      // v1
+      const formatTime = `${currentTime.hours}:${currentTime.minutes}:${currentTime.seconds}`;
+      refs.digitalClock.textContent = formatTime;
+    
+      // v2
+      // refs.digitalClock.textContent = currentTime;
 
-    const formatTime = `${currentTime.hours}:${currentTime.minutes}:${currentTime.seconds}`;
-    refs.digitalClock.textContent = formatTime;
-
-    refs.clockSeconds__arrow.style.transform = `rotate(${clock.seconds}deg)`;
-    refs.clockMinutes__arrow.style.transform = `rotate(${clock.minutes}deg)`;
-    refs.clockHours__arrow.style.transform = `rotate(${clock.hours}deg)`;
-}, 1000);
+      refs.clockSeconds__arrow.style.transform = `rotate(${clock.seconds}deg)`;
+      refs.clockMinutes__arrow.style.transform = `rotate(${clock.minutes}deg)`;
+      refs.clockHours__arrow.style.transform = `rotate(${clock.hours}deg)`;
+}
