@@ -59,6 +59,7 @@ function getCurrentDate() {
       //! const currentTime = currentDate.toLocaleTimeString('ca-CA')
 
       const clock = {
+        // hours: (360 / 12) * currentTime.hours + currentTime.minutes / 2,
         hours:
           (360 / 12) * currentTime.hours +
           (360 / 12 / 60) * currentTime.minutes,
